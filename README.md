@@ -38,6 +38,20 @@ Time to be creative, and efficient. Do what you think would be the best for your
 
 Send us the project and answer to those simple questions : 
 - What bugs did you find ? How did you solve these and why ? 
+
+bug 1 :
+    The changes add to users could not be saved. I have changed on user/view.js, on line 136  : OnChange to OnClick because a submit button like this one uses OnClick
+
+bug 2 :
+    When clicking on a project, in the projects page, we had an error message. I have changed on the project controller on line 22, the find to the findOne function. We were receiving an array instead of the wanted project.
+
+bug 3 :
+    When using the bin button in front of a project time line nothing happened and the activities weren't modified before refreshing. In order to not confuse people I have change the delete fonction in api.js, now when we use this button it re-render the activities. Thus the deleted activities won't be saved.
+
 - Which feature did you develop and why ? 
+    I didn't develop any feature, I spent to much time on the errors.
+    I would have add a possibility to see users activities and their cost.
+    It would have permitted to see how busy people are.
+
 - Do you have any feedback about the code / architecture of the project and what was the difficulty you encountered while doing it ? 
 

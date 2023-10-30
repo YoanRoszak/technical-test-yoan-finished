@@ -49,9 +49,7 @@ bug 3 :
     When using the bin button in front of a project time line nothing happened and the activities weren't modified before refreshing. In order to not confuse people I have change the delete fonction in api.js, now when we use this button it re-render the activities. Thus the deleted activities won't be saved.
 
 - Which feature did you develop and why ? 
-    I didn't develop any feature, I spent to much time on the errors.
-    I would have add a possibility to see users activities and their cost.
-    It would have permitted to see how busy people are.
+   I have added a way to handle projects type
 
 - Do you have any feedback about the code / architecture of the project and what was the difficulty you encountered while doing it ? 
 

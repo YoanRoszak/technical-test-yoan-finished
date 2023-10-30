@@ -43,6 +43,11 @@ module.exports = {
         "dush-gray": "#E5EAEF", // progress bar bg
         "right-bg": "#EBF3FC",
         "gray-bord": "#D2D8E3", //gray Border
+        "admin-color": "#ffddbd",
+        "prospection-color": "#ffbdfd",
+        "startup-project-color": "#bde0ff",
+        "startup-invest-color": "#c8f4d5",
+        "other-color": "#676D7C",
       },
       width: {
         eighty: "80%",

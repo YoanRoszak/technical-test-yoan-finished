@@ -11,7 +11,6 @@ import api from "../../services/api";
 const ProjectList = () => {
   const [projects, setProjects] = useState(null);
   const [activeProjects, setActiveProjects] = useState(null);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -28,9 +27,13 @@ const ProjectList = () => {
 
   if (!projects || !activeProjects) return <Loader />;
 
-  const handleSearch = (searchedValue) => {
-    const p = (projects || []).filter((p) => p.status === "active").filter((e) => e.name.toLowerCase().includes(searchedValue.toLowerCase()));
-    setActiveProjects(p);
+  const handleSearch = (searchedValue, selectedType) => {
+    const filteredProjects = (projects || []).filter((p) => p.status === "active");
+    const filteredByType = selectedType ? filteredProjects.filter((p) => p.type === selectedType) : filteredProjects;
+    const filteredByName = searchedValue ? filteredByType.filter((e) =>
+    e.name.toLowerCase().includes(searchedValue.toLowerCase())
+  ): filteredByType;
+  setActiveProjects(filteredByName);
   };
 
   return (
@@ -94,7 +97,8 @@ const Budget = ({ project }) => {
 
 const Create = ({ onChangeSearch }) => {
   const [open, setOpen] = useState(false);
-
+  const [selectedType, setSelectedType] = useState(""); // Storing the selected type
+  const [selectedValue, setSelectedValue] = useState(""); // Storing the selected value
   return (
     <div className="mb-[10px] ">
       <div className="flex justify-between flex-wrap">
@@ -112,9 +116,26 @@ const Create = ({ onChangeSearch }) => {
             name="q"
             className="py-2 w-[364px] h-[48px] text-[16px] font-medium text-[black] rounded-[10px] bg-[#F9FBFD] border border-[#FFFFFF] pl-10"
             placeholder="Search"
-            onChange={(e) => onChangeSearch(e.target.value)}
+            onChange={(e) => {
+              setSelectedValue(e.target.value);
+              onChangeSearch(e.target.value, selectedType)}}
           />
         </div>
+        {/* Type Filter Dropdown */}
+        <select
+          className="py-2 w-[200px] text-[16px] font-medium text-black rounded-[10px] bg-[#F9FBFD] border border-[#FFFFFF] pl-2"
+          value={selectedType}
+          onChange={(e) => {
+            setSelectedType(e.target.value);
+            onChangeSearch(selectedValue, e.target.value)
+          }}
+        >
+          <option value="">All Types</option>
+          <option value="prospection">Prospection</option>
+          <option value="admin">Admin</option>
+          <option value="stratup-invest">Startup-invest</option>
+          <option value="stratup-project">Startup-project</option>
+        </select>
         {/* Create New Button */}
         <button
           className="bg-[#0560FD] text-[#fff] py-[12px] px-[20px] rounded-[10px] text-[16px] font-medium"

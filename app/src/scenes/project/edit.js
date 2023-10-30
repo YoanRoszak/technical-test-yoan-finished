@@ -80,6 +80,16 @@ export default function EditProject() {
                         <option value="inactive">Inactive</option>
                       </select>
                     </div>
+                    <div className="w-full md:w-[260px] mt-2">
+                      <div className="text-[14px] text-[#212325] font-medium	">Type</div>
+                      <select className="projectsInput text-[14px] font-normal text-[#212325] rounded-[10px]" name="type" value={values.type} onChange={handleChange}>
+                        <option value=""></option>
+                        <option value="prospection">Prospection</option>
+                        <option value="admin">Admin</option>
+                        <option value="stratup-invest">Stratup-invest</option>
+                        <option value="stratup-project">Stratup-project</option>
+                      </select>
+                    </div>
                   </div>
                   <div className="flex gap-4 mt-3">
                     <div className="w-full md:w-[260px]">

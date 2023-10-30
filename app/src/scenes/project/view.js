@@ -81,6 +81,9 @@ const ProjectDetails = ({ project }) => {
                   <span className="text-[16px] text-[#676D7C] font-medium">{project.description ? project.description : ""}</span>
                 </div>
                 <div className="mt-4 text-[18px] text-[#000000] font-semibold">
+                  {`Type :`} <span className="w-fit text-[18px] text-[#0C1024] font-bold">{project.type ? project.type : ""}</span>
+                </div>
+                <div className="mt-4 text-[18px] text-[#000000] font-semibold">
                   {`Objective :`} <span className="text-[#676D7C] text-[16px] font-medium">{project.objective ? project.objective : ""}</span>
                 </div>
                 <div className="mt-2 mr-2">
